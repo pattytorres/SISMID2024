@@ -1,0 +1,64 @@
+---
+title: "Final COVID Data Report"
+author: "Patty Torres"
+date: "`2024-23-07`"
+output:
+  html_document:
+    code_folding: hide
+    toc: true
+    toc_float: true
+hitheme: tomorrow
+highlighter: highlight.js
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+
+
+knitr::opts_chunk$set(echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 9,
+  fig.height = 4,
+  fig.path = "../results/"
+)
+
+theme_set(theme_bw() + theme(legend.position = "bottom"))
+```
+
+## Overview
+
+Download, clean, analyze and visualize CDC WW COVID concentration data. 
+```{r}
+source(here::here("source", "02_data_cleaning.R"))
+```
+
+
+## Analysis
+
+Analysis of COVID data 
+```{r}
+source(here::here("source", "03_data_analysis.R"))
+```
+
+```{r}
+covid_table %>%
+  knitr::kable()
+```
+
+## Data Visualization 
+Boxplot and time series plot 
+
+```{r}
+source(here::here("source", "04_data_visualization.R"))
+```
+
+
+```{r COVID_boxplot}
+plot1
+```
+
+```{r time_series_plot}
+plot2
+```
+
